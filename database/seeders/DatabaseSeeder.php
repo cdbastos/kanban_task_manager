@@ -14,15 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$12$1lFHISiFdeTGkBlGddJCouqQpjTRT81zpyiUMZKkEvD.5umK3Td9C',//password
+            'remember_token' => Str::random(10),
+        ]);
 
-         User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-             'email_verified_at' => now(),
-             'password' => '$2y$12$1lFHISiFdeTGkBlGddJCouqQpjTRT81zpyiUMZKkEvD.5umK3Td9C',//password
-             'remember_token' => Str::random(10),
+         \App\Models\User::factory(10)
+             ->create();
 
-         ]);
+         \App\Models\Task::factory(20)
+             ->create();
     }
 }
