@@ -11,9 +11,12 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "mokhosh/filament-kanban": "^2.8"
+        "mokhosh/filament-kanban": "^2.8",
+        "spatie/eloquent-sortable": "^4.2",
+        "spatie/laravel-options": "^1.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.29",

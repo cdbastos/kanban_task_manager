@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('status')->default('todo');
+            $table->string('status')->default('Haciendo');
+            $table->boolean('urgent')->default(false);
+            $table->tinyInteger('progress')->default(0);
+            $table->unsignedInteger('order_column')->nullable();
+            $table->dateTime('due_date')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
