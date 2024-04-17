@@ -3,7 +3,7 @@
 ## About Task Management System
 
 ### Project Description
-This is a Portfolio landing page built with Laravel and filament, It has a full control panel to control task management.
+This is a landing page built with Laravel and filament, It has a full control panel to control task management.
 
 ### How to Install
 1. Clone the project
@@ -15,6 +15,6 @@ This is a Portfolio landing page built with Laravel and filament, It has a full 
 7. Start the project by running `php artisan serve`
 
 ### Demo Account
-- AdminURL: http://127.0.0.1:8000/admin
+- AdminURL: http://127.0.0.1:8000/admin/tasks-kanban-board
 - Email: test@example.com
 - Password: password
