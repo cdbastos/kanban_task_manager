@@ -20,9 +20,6 @@ enum TaskStatus: string
             'Hecho' => 'Hecho',
         ];
     }
-
-
-
 }
 
 
