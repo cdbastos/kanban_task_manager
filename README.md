@@ -13,6 +13,7 @@ This is a landing page built with Laravel and filament, It has a full control pa
 5. Change database information in `.env`
 6. Run migrations by executing `php artisan migrate` , Then Run  `php artisan db:seed` to use faker settings in database,
 7. Start the project by running `php artisan serve`
+8. Run test by running `php artisan test`
 
 ### Demo Account
 - AdminURL: http://127.0.0.1:8000/admin/tasks-kanban-board
