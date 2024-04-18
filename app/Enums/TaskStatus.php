@@ -8,8 +8,8 @@ enum TaskStatus: string
 {
     use IsKanbanStatus;
 
-    case Todo = 'Haciendo';
-    case Doing = 'Por Hacer';
+    case Todo = 'Por Hacer';
+    case Doing = 'Haciendo';
     case Done = 'Hecho';
 
     public static function labels(): array

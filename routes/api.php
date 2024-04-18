@@ -26,8 +26,9 @@ Route::get('/tasks/{task}', [\App\Http\Controllers\Api\TaskController::class, 's
 //crea la ruta para obtener el listado de tareas
 Route::get('/tasks', [\App\Http\Controllers\Api\TaskController::class, 'index'])
     ->name('api.v1.tasks.index')
-
 ;
 
-////crea la ruta para obtener el listado de tareas por status
-//Route::get('/tasks/status/{status}', [\App\Http\Controllers\Api\TaskController::class, 'getTaskByStatus']);
+//crea la ruta para obtener el listado de tareas por status
+Route::get('/tasks/status/{status}', [\App\Http\Controllers\Api\TaskController::class, 'getTaskByStatus'])
+    ->name('api.v1.tasks.status')
+;

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
+use Exception;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -25,66 +26,36 @@ class TaskController extends Controller
      */
     public function getTaskByStatus($status)
     {
-        //busca el status dentro del enum TaskStatus
-        try {
-            $statusEnum = TaskStatus::from($status);
-        } catch (\Exception $e) {
-            // Si el valor de $status no es válido, devuelve un error
+        if ($status == 'todo') {
+            $status = TaskStatus::Todo;
+        } elseif ($status == 'doing') {
+            $status = TaskStatus::Doing;
+        } elseif ($status == 'done') {
+            $status = TaskStatus::Done;
+        } else {
             return response()->json(['error' => 'Invalid status'], 400);
         }
 
         //devuelve el listado de tareas del modelo Task
-        return response()->json(Task::where('status', $status)->get());
-    }
+        return TaskCollection::make(Task::where('status', $status)->get());
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Task $task)
+    public function show($task)
     {
+        //busca la tarea por id
+        $task = Task::find($task);
+
+        //valida que la tarea exista
+        if (is_null($task)) {
+            return response()->json(['error' => 'Task not found'], 404);
+        }
+
         //devuelve la tarea solicitada
         return TaskResource::make($task);
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
